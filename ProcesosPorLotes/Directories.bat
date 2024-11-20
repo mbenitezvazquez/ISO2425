@@ -16,7 +16,7 @@ if %option% EQU 5 goto copiar
 
 :file
 set /p namefile="Introduzca el nombre de fichero  "
-echo %namefile%.txt
+echo > %namefile%.txt
 pause
 
 :tree
