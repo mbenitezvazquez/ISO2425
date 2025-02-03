@@ -1,1 +1,64 @@
+#!/bin/bash
+#Script de Agenda
+#Autor:Mario Benítez Vázquez
+#Fecha:03-02-2025
 
+clear
+
+
+while true; do
+
+	echo "Menu de opciones"
+	echo "a) Añadir entradas"
+	echo "b) Buscar por dni"
+	echo "c) Ver la agenda completa"
+	echo "d) Eliminar todas las entradas de la agenda"
+	echo "e) Salir "
+read -p "Introduce la opcion que deseas:  " option
+
+case $option in
+
+	a)
+		read -p "Dime DNI " dni
+
+		if grep "^$dni:" agenda.txt>/dev/null; then
+
+			echo "Usuario ya existente"
+
+		else
+			read -p "Digame su nombre  " name
+			read -p "Digame su apellido  " surname
+			read -p "Digame su localidad  " locality
+
+			echo "$dni:$name:$surname:$locality" >> agenda.txt
+		fi
+	;;
+
+	b)
+
+	;;
+
+	c)
+		if -s agenda.txt; then 
+			 echo "listado agenda:" cat agenda.txt
+
+
+		else
+			echo "Agenda vacia"
+		fi
+
+	;;
+
+
+	d)
+
+	;;
+
+
+	e)
+		echo "Finalizando..."
+		break
+	;;
+
+	esac
+	done
