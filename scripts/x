@@ -35,13 +35,27 @@ case $option in
 	;;
 
 	b)
+		read -p "Digame su dni:  " dni
 
+		if grep "^$dni:" agenda.txt >> /dev/null; then
+
+			dni=$(grep $dni agenda.txt | cut -d ":" -f 1)
+			nombre=$(grep $dni agenda.txt | cut -d ":" -f 2)
+			apellidos=$(grep $dni agenda.txt |cut -d ":" -f 3)
+			ciudades=$(grep $dni agenda.txt | cut -d ":" -f 4)
+
+			echo "La persona con DNI numero $dni es: $nombre $apellidos, y vive en $ciudades"
+		else
+				echo "¡ERROR! No valido"
+
+		fi
 	;;
 
 	c)
-		if -s agenda.txt; then 
-			 echo "listado agenda:" cat agenda.txt
+		if [ -e agenda.txt ]; then 
 
+			echo "Agenda completa: "
+			cat agenda.txt
 
 		else
 			echo "Agenda vacia"
@@ -51,7 +65,8 @@ case $option in
 
 
 	d)
-
+		> agenda.txt
+		echo "Vaciando agenda..."
 	;;
 
 
@@ -59,6 +74,3 @@ case $option in
 		echo "Finalizando..."
 		break
 	;;
-
-	esac
-	done
