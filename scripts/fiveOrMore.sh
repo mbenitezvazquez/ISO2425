@@ -36,18 +36,6 @@ clear
 		fi
 
 
-		if [ -z $2 ]; then
-			echo "Ficero vacio"
-
-		else
-			echo "No esta  vacio"
-
-
-		fi
-
-
-	echo "Mario Benítez Vázquez"
-
 
 		archivo=$(ls $2 | wc -l)
 
@@ -56,7 +44,8 @@ clear
                 echo "Directorio $2 vacio"
                 exit
                 fi
-
+		
+echo "Mario Benítez Vázquez"
 
 
 
