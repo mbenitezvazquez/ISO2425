@@ -34,7 +34,7 @@ while True:
 
     match op:
         case "A":
-            fich = input("Dime el nombre de un fichero para eliminarlo:  ")
+            fich = input("Ingrese el nombre de un fichero para eliminarlo:  ")
             if fich in ListaFicheros:
                 os.remove(fich)
                 ListaFicheros.remove(fich)  # Eliminar de la lista también
@@ -43,7 +43,7 @@ while True:
                 print("El fichero nombrado no se encuentra en la lista. ")
 
         case "B":
-            dir = input("Dime el nombre de un directorio para mostrar su información:  ")
+            dir = input("Ingrese el nombre de un directorio para mostrar su información:  ")
             if dir in ListaDirectorios:
                 contenido = os.listdir(dir)
                 print("El contenido del directorio ", dir, "es: ", contenido)
@@ -51,7 +51,7 @@ while True:
                 print("El directorio nombrado no se encuentra en la lista. ")
 
         case "C":
-            fich = input("Dime el nombre del fichero que quieres copiar:  ")
+            fich = input("Ingrese el nombre del fichero que quieres copiar:  ")
             dest = input("Cuál es el destino en el cuál quieres que se copie el fichero:  ")
             if fich in ListaFicheros and os.path.isdir(dest):
                 shutil.copy(fich, dest)
