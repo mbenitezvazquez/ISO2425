@@ -14,16 +14,16 @@ if os.getuid() != 0:
 while True:
    print("Opción 1: Muestra información del SSOO y la información de la CPU.")
    print("Opción 2: Ingrese un usuario, mostrar informacion del usuairo, crear si no existe")
-   print(
-       "Opción 3: Ingrese un directorio. Comprobar si directorio existente y si es un directorio, si no existe crear.")
+   print("Opción 3: Ingrese un directorio. Comprobar si directorio existente y si es un directorio, si no existe crear.")
    print("Opción 4: Salir del programa")
+   
    opt = int(input(" Ingrese una opcion "))
    match opt:
        case 1:
            print(os.uname().sysname)
            print(cpu.get_cpu_info()['brandraw'])
        case 2:
-           usuario = input(" Dime un usuario ")
+           usuario = input(" Ingrese un usuario ")
            fich = open("/etc/passwd", "r")
            cnt = fich.readlines()
            enc = 0
